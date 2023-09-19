@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomButton extends StatelessWidget {
-  CustomButton({
+class CustomButton2 extends StatelessWidget {
+  const CustomButton2({
     this.backgroundColor = Colors.white,
     this.iconColor = const Color.fromARGB(255, 197, 197, 197),
     required this.buttonIcon,
@@ -9,10 +9,11 @@ class CustomButton extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  Color backgroundColor;
-  Color iconColor;
-  IconData buttonIcon;
-  String iconName;
+  final Color backgroundColor;
+  final Color iconColor;
+  final IconData buttonIcon;
+  final String iconName;
+
   @override
   Widget build(BuildContext context) {
     return Column(

@@ -77,7 +77,7 @@ class App1 extends StatelessWidget {
                 border: Border.all(color: Colors.black, width: 3),
                 borderRadius: BorderRadius.circular(15),
               ),
-              //alignment: Alignment.center,
+              alignment: Alignment.center,
               child: const Text(
                 "Eng.Abdulrahman Ahmed",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
