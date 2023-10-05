@@ -29,7 +29,7 @@ class PrefScreen extends StatelessWidget {
               const SliverToBoxAdapter(child: SizedBox(height: 20)),
               const SliverToBoxAdapter(
                 child: Text(
-                  'I Devolope creative simple apps, \nAnd I Love What i do',
+                  'I Develop creative simple apps, \nAnd I Love What i do',
                   style: TextStyle(
                       fontSize: 20,
                       color: regularTextColor,
@@ -56,7 +56,7 @@ class PrefScreen extends StatelessWidget {
                 ),
                 flexibleSpace: const FlexibleSpaceBar(
                   title: Text(
-                    'Mobile App Devoloper',
+                    'Mobile App Developer',
                     style: TextStyle(fontSize: 12, fontFamily: 'Koll'),
                   ),
                   centerTitle: true,
@@ -126,7 +126,7 @@ class PrefScreen extends StatelessWidget {
               const SliverToBoxAdapter(
                   child: WorkTil(
                 icon: Icons.developer_mode_outlined,
-                title: 'Mobile App Devolop',
+                title: 'Mobile App Develop',
                 subTitle: '76 Projects',
                 tilColor: headTextColor,
               )),
