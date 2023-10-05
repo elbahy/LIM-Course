@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lim_course/screens/counter.dart';
+import 'package:lim_course/screens/login_screen.dart';
+import 'package:lim_course/screens/shop_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,9 +18,7 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        theme: ThemeData(useMaterial3: true),
-        debugShowCheckedModeBanner: false,
-        home: const CounterApp());
+    return const MaterialApp(
+        debugShowCheckedModeBanner: false, home: ShopScreen());
   }
 }

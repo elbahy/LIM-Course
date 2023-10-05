@@ -19,34 +19,35 @@ class CustomTextForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-        keyboardType: keyType,
-        obscureText: isPass,
-        decoration: InputDecoration(
-          hintStyle: const TextStyle(fontSize: 14, color: Color(0xff858585)),
-          filled: true,
-          fillColor: const Color.fromARGB(100, 217, 217, 217),
-          hintText: hint,
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-          suffixIcon: (isPass)
-              ? const Icon(
-                  Icons.visibility_off,
-                )
-              : (sufIcon != null)
-                  ? sufIcon
-                  : null,
-          prefixIcon: (preIcon != null) ? preIcon : null,
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15.0),
-            borderSide: BorderSide(
-              color: Color.fromARGB(a, 133, 133, 133),
-              width: 1,
-            ),
+      keyboardType: keyType,
+      obscureText: isPass,
+      decoration: InputDecoration(
+        hintStyle: const TextStyle(fontSize: 14, color: Color(0xff858585)),
+        filled: true,
+        fillColor: const Color.fromARGB(100, 217, 217, 217),
+        hintText: hint,
+        contentPadding:
+            const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+        suffixIcon: (isPass)
+            ? const Icon(
+                Icons.visibility_off,
+              )
+            : (sufIcon != null)
+                ? sufIcon
+                : null,
+        prefixIcon: (preIcon != null) ? preIcon : null,
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.0),
+          borderSide: BorderSide(
+            color: Color.fromARGB(a, 133, 133, 133),
+            width: 1,
           ),
-          border: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(15)),
-          ),
-        ));
+        ),
+        border: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+        ),
+      ),
+    );
   }
 }
 
