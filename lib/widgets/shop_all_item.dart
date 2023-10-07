@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lim_course/models/shop_item_model.dart';
 
-class AllItem extends StatelessWidget {
+class AllItem extends StatefulWidget {
   AllItem({
     required this.item,
     required this.onTap,
@@ -11,12 +11,18 @@ class AllItem extends StatelessWidget {
   Item item;
 
   Function() onTap;
+
+  @override
+  State<AllItem> createState() => _AllItemState();
+}
+
+class _AllItemState extends State<AllItem> {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         InkWell(
-          onTap: onTap,
+          onTap: widget.onTap,
           child: Container(
             height: 150,
             decoration: BoxDecoration(
@@ -29,11 +35,11 @@ class AllItem extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * .3,
                   height: 150,
                   decoration: BoxDecoration(
-                      color: item.backgroundColor,
+                      color: widget.item.backgroundColor,
                       borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(30),
                           bottomLeft: Radius.circular(30))),
-                  child: Image.asset(item.image),
+                  child: Image.asset(widget.item.image),
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 25, 0, 25),
@@ -41,14 +47,14 @@ class AllItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        item.itemName,
+                        widget.item.itemName,
                         style: const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(
                         width: 200,
                         child: Text(
-                          item.descreption,
+                          widget.item.descreption,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
                           style: const TextStyle(
@@ -64,7 +70,7 @@ class AllItem extends StatelessWidget {
                         children: [
                           Text(
                             r'$'
-                            '${item.price}',
+                            '${widget.item.price}',
                             style: const TextStyle(
                                 fontSize: 24, fontWeight: FontWeight.bold),
                           ),
@@ -78,17 +84,23 @@ class AllItem extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(0, 25, 16, 25),
                   child: Column(
                     children: [
-                      (item.fav)
-                          ? const Icon(
-                              Icons.favorite,
+                      (widget.item.fav)
+                          ? IconButton(
+                              icon: const Icon(Icons.favorite),
+                              onPressed: () => setState(() {
+                                widget.item.fav = false;
+                              }),
                               color: Colors.red,
                             )
-                          : const Icon(
-                              Icons.favorite_outline,
+                          : IconButton(
+                              icon: const Icon(Icons.favorite_outline),
+                              onPressed: () => setState(() {
+                                widget.item.fav = true;
+                              }),
                             ),
                       const Spacer(),
                       Row(
-                        children: item.rateIcons(iconSize: 10),
+                        children: widget.item.rateIcons(iconSize: 10),
                       )
                     ],
                   ),
