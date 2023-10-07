@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lim_course/models/shop_item_model.dart';
+import 'package:lim_course/screens/shop_item_screen.dart';
 import 'package:lim_course/widgets/shop_all_item.dart';
 import 'package:lim_course/widgets/shop_featured_item.dart';
 
@@ -147,49 +149,21 @@ class ShopScreen extends StatelessWidget {
                   ]),
             ),
             const SliverToBoxAdapter(child: SizedBox(height: 20)),
-            SliverToBoxAdapter(
-              child: AllItem(
-                itemName: 'Audio Speaker',
-                descreption:
-                    'Lorem Ipsum is simply dummy text of the printing and typesetting .',
-                image: 'assets/speaker.png',
-                price: r'$59',
-                backgroundColor: Colors.orange,
+            SliverList.builder(
+              itemBuilder: (context, index) => AllItem(
+                item: items[index],
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ItemScreen(
+                          item: items[index],
+                        ),
+                      ));
+                },
               ),
-            ),
-            const SliverToBoxAdapter(child: SizedBox(height: 15)),
-            SliverToBoxAdapter(
-              child: AllItem(
-                itemName: 'Iphone X',
-                descreption:
-                    'Lorem Ipsum is simply dummy text of the printing and typesetting .',
-                image: 'assets/iphone.png',
-                price: r'$199',
-                backgroundColor: Colors.cyan,
-              ),
-            ),
-            const SliverToBoxAdapter(child: SizedBox(height: 15)),
-            SliverToBoxAdapter(
-              child: AllItem(
-                itemName: 'Nike Shoes',
-                descreption:
-                    'Lorem Ipsum is simply dummy text of the printing and typesetting .',
-                image: 'assets/nike-shoes.png',
-                price: r'$99',
-                backgroundColor: Colors.lime,
-              ),
-            ),
-            const SliverToBoxAdapter(child: SizedBox(height: 15)),
-            SliverToBoxAdapter(
-              child: AllItem(
-                itemName: 'Iphone X',
-                descreption:
-                    'Lorem Ipsum is simply dummy text of the printing and typesetting .',
-                image: 'assets/iphone.png',
-                price: r'$199',
-                backgroundColor: Colors.cyan,
-              ),
-            ),
+              itemCount: items.length,
+            )
           ],
         ),
       ),
@@ -203,11 +177,13 @@ class ShopScreen extends StatelessWidget {
         selectedItemColor: Colors.orange,
         iconSize: 30,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: ''),
           BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart_outlined), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: ''),
+              icon: Icon(Icons.home_outlined), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart_outlined), label: 'Cart'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person_outline), label: 'Profile'),
         ],
       ),
     );
